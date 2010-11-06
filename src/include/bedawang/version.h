@@ -1,5 +1,5 @@
-/*
- * Copyright (c) 2010 Jesco Freund <daemotron@my-universe.com>
+/**
+ * Copyright (c) 2010 Daemotron <mail@daemotron.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
