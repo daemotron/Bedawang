@@ -92,4 +92,3 @@ extern uint64_t buffer_append(buffer_t *buffer, const char *string);
 extern uint64_t buffer_append_0(buffer_t *buffer, const char *string);
 
 #endif /* _BUFFER_H_ */
-
