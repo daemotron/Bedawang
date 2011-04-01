@@ -146,3 +146,4 @@ buffer_get_byte(buffer_t *buf, int64_t offset)
 
 	return (int)bf[ofs];
 }
+
