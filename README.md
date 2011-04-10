@@ -19,6 +19,37 @@ the TCP/IP stuff, network I/O, process management, multiplexing and SSL/TLS
 support. So any application built atop Bedawang just can concentrate on
 implementing the layer 7 protocol and the application logic.
 
+Installation Instructions
+-------------------------
+
+### Requirements ######
+
+To compile Bedawang, the following third party applications are required:
+
+*   A C compiler capable of handling ANSI C
+    GCC 4.2 and Clang 2.8 are known to work
+*   CMake 2.8 or newer
+
+### Installation ######
+
+Check out the Bedawang source code:
+
+    git clone git://github.com/daemotron/Bedawang.git
+
+Now you can bootstrap and build Bedawang:
+
+    cd Bedawang
+    mkdir build
+    cd build
+    cmake ../
+    make
+    sudo make install
+    make clean
+
+This will install Bedawang to `/usr/local` (the shared library to `lib`, and 
+the necessary header files to `include`).
+
+
 Frequently Asked Questions
 --------------------------
 
