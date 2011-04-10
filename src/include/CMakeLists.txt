@@ -10,9 +10,9 @@ configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 # install libyar directory
 install(
-	DIRECTORY bedawang
-	DESTINATION include
-	FILES_MATCHING PATTERN "*.txt" EXCLUDE
+    DIRECTORY bedawang
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.txt" EXCLUDE
 )
 
 add_subdirectory(bedawang)
