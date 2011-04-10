@@ -1,4 +1,4 @@
-/**
+/*-
  * Copyright (c) 2010, 2011 Daemotron <mail@daemotron.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -30,54 +30,54 @@ typedef struct
     uint64_t limit;
 } buffer_t;
 
-#define BUFFER_init(__buf) { \
-    (__buf)->data = NULL; \
-    (__buf)->size = 0; \
-    (__buf)->used = 0; \
-    (__buf)->limit = 0; \
+#define BUFFER_init(__buf) {      \
+    (__buf)->data = NULL;         \
+    (__buf)->size = 0;            \
+    (__buf)->used = 0;            \
+    (__buf)->limit = 0;           \
 }
 
-#define BUFFER_set_limit(__buf, __limit) { \
-	(__buf)->limit = (__limit); \
+#define BUFFER_set_limit(__buf, __limit) {      \
+    (__buf)->limit = (__limit);                 \
 }
 
-#define BUFFER_grow(__buf, __size, __status) { \
-    uint64_t __sz; \
-    if ((__buf)->size < (__buf)->limit) { \
+#define BUFFER_grow(__buf, __size, __status) {                                                               \
+    uint64_t __sz;                                                                                           \
+    if ((__buf)->size < (__buf)->limit) {                                                                    \
         __sz = (((__buf)->limit - (__buf)->size) >= (__size) ? (__size) : ((__buf)->limit - (__buf)->size)); \
-        (__buf)->data = realloc((__buf)->data, (__buf)->size + __sz + 1); \
-        if (NULL == (__buf)->data) { \
-            *(__status) = ENOMEM; \
-            (__buf)->size = 0; \
-        } else { \
-            (__buf)->size += __sz; \
-            *(__status) = 0; \
-        } \
-    } else { \
-        *(__status) = ERANGE; \
-    } \
+        (__buf)->data = realloc((__buf)->data, (__buf)->size + __sz + 1);                                    \
+        if (NULL == (__buf)->data) {                                                                         \
+            *(__status) = ENOMEM;                                                                            \
+            (__buf)->size = 0;                                                                               \
+        } else {                                                                                             \
+            (__buf)->size += __sz;                                                                           \
+            *(__status) = 0;                                                                                 \
+        }                                                                                                    \
+    } else {                                                                                                 \
+        *(__status) = ERANGE;                                                                                \
+    }                                                                                                        \
 }
 
 
-#define BUFFER_copy(__src, __dest, __status) { \
-    BUFFER_set_limit((__dest), (__src)->limit); \
-    BUFFER_grow((__dest), (__src)->size, (__status)); \
-    if (*(__status) == 0) { \
+#define BUFFER_copy(__src, __dest, __status) {                    \
+    BUFFER_set_limit((__dest), (__src)->limit);                   \
+    BUFFER_grow((__dest), (__src)->size, (__status));             \
+    if (*(__status) == 0) {                                       \
         memcpy((__dest)->data, (__src)->data, (__src)->size + 1); \
-        (__dest)->size = (__src)->size; \
-        (__dest)->used = (__src)->used; \
-    } \
+        (__dest)->size = (__src)->size;                           \
+        (__dest)->used = (__src)->used;                           \
+    }                                                             \
 }
 
 
-#define BUFFER_destroy(__buf) { \
-    if (NULL != (__buf)->data) { \
-        free((__buf)->data); \
-        (__buf)->data = NULL; \
-    } \
-    (__buf)->size = 0; \
-    (__buf)->used = 0; \
-    (__buf)->limit = 0; \
+#define BUFFER_destroy(__buf) {            \
+    if (NULL != (__buf)->data) {           \
+        free((__buf)->data);               \
+        (__buf)->data = NULL;              \
+    }                                      \
+    (__buf)->size = 0;                     \
+    (__buf)->used = 0;                     \
+    (__buf)->limit = 0;                    \
 }
 
 

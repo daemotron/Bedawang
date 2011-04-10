@@ -14,8 +14,21 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef __BEDAWANG_TYPE_H
+#define __BEDAWANG_TYPE_H
 
-#ifndef __BEDAWANG_PRETHREAD_H
-#define __BEDAWANG_PRETHREAD_H
+/**
+ * The Bedawang Server Object
+ *
+ * The Bedawang Server Object (BSO) is the core object containing all
+ * information concerning the server's behaviour. These include (among 
+ * others) network configuration, MPM capabilities, logging behaviour
+ * and SSL/TLS configuration.
+ */
+typedef struct 
+{
+    int foo;
+    /* TODO: define structure */
+} bso_t;
 
-#endif /* __BEDAWANG_PRETHREAD_H */
+#endif /* __BEDAWANG_TYPE_H */

@@ -1,4 +1,4 @@
-/**
+/*-
  * Copyright (c) 2010 Daemotron <mail@daemotron.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
