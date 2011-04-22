@@ -1,4 +1,4 @@
-include_directories(${bedawang_SOURCE_DIR}/src/include ${bedawang_SOURCE_DIR}/src/lib ${bedawang_BINARY_DIR}/src/include)
+include_directories(${bedawang_SOURCE_DIR}/src/config ${bedawang_SOURCE_DIR}/src/include ${bedawang_SOURCE_DIR}/src/lib ${bedawang_BINARY_DIR}/src/config ${bedawang_BINARY_DIR}/src/include)
 
 # source files that should be compiled into the library have
 # to be added to this list

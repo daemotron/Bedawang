@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2010 Daemotron <mail@daemotron.net>
+ * Copyright (c) 2011 Daemotron <mail@daemotron.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,8 +14,10 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef __BEDAWANG_TYPE_H
-#define __BEDAWANG_TYPE_H
+
+#ifndef BEDAWANG_H_
+#define BEDAWANG_H_
+
 
 /**
  * The Bedawang Server Object
@@ -29,6 +31,7 @@ typedef struct
 {
     int foo;
     /* TODO: define structure */
-} bso_t;
+} bwg_so_t;
 
-#endif /* __BEDAWANG_TYPE_H */
+
+#endif /*BEDAWANG_H_ */

@@ -1,4 +1,4 @@
-/*-
+/**
  * Copyright (c) 2010 Daemotron <mail@daemotron.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -14,8 +14,29 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef __BEDAWANG_CONFIG_H
+#define __BEDAWANG_CONFIG_H
 
-#ifndef __BEDAWANG_PRETHREAD_H
-#define __BEDAWANG_PRETHREAD_H
+/* global settings */
+#cmakedefine PACKAGE "${PACKAGE}"
+#cmakedefine PACKAGE_NAME "${PACKAGE_NAME}"
+#cmakedefine PACKAGE_VERSION "${PACKAGE_VERSION}"
 
-#endif /* __BEDAWANG_PRETHREAD_H */
+/* check for header files */
+#cmakedefine HAVE_PTHREAD_H
+#cmakedefine HAVE_OPENSSL_H
+
+/* check for libraries */
+#cmakedefine HAVE_PTHREAD_L
+#cmakedefine HAVE_OPENSSL_L
+
+/* availability of POSIX threads */
+#if defined HAVE_PTHREAD_H && defined HAVE_PTHREAD_L
+#define BEDAWANG_HAVE_PTHREAD
+#endif
+
+#if defined HAVE_OPENSSL_H && defined HAVE_OPENSSL_L
+#define BEDAWANG_HAVE_SSL
+#endif
+
+#endif /* __BEDAWANG_CONFIG_H */
