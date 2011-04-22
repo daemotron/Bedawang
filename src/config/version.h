@@ -17,40 +17,45 @@
 #ifndef __BEDAWANG_VERSION_H
 #define __BEDAWANG_VERSION_H
 
-/* Can be one of
-     CURRENT
-     STABLE
-     RELEASE
-     ALPHA
-     BETA
-     PRERELEASE
-*/
-#define BEDAWANG_VERSION_FLAVOUR "CURRENT"
+#include <stdint.h>
 
-#define BEDAWANG_VERSION_MAJOR 1
-#define BEDAWANG_VERSION_MINOR 0
-#define BEDAWANG_VERSION_PATCH 0
-#define BEDAWANG_VERSION_SUFFX 0
+/*
+ * Do not change these definitions!
+ */
 
-/* The pattern for the numeric version follows this syntax:
+#define BWG_CURRENT     0x00
+#define BWG_STABLE      0x22
+#define BWG_ALPHA       0x44
+#define BWG_BETA        0x66
+#define BWG_PRERELEASE  0x88
+#define BWG_RELEASE     0xFF
 
-     0xAABBCCDDEE
+/*
+ * Configure release information here 
+ */
 
-   AA is the major, BB the minor and CC the patch version,
-   each of them always represented as two-digit hex number.
+#define BWG_VERSION_MAJOR          1
+#define BWG_VERSION_MINOR          0
+#define BWG_VERSION_PATCH          0
+#define BWG_VERSION_FLAVOUR        BWG_CURRENT
+#define BWG_VERSION_SUFFX          0
 
-   DD represents the flavour and is set thus:
-     CURRENT         00
-     STABLE          22
-     ALPHA           44
-     BETA            66
-     PRERELEASE      88
-     RELEASE         FF
-
-   EE is the suffix of the pre-release stages. It only applies
-   to ALPHA, BETA and PRERELEASE. In all other cases, it has
-   to be set to 00.
-*/
-#define BEDAWANG_VERSION_NUM 0x0100000000ULL
+/* 
+ * The pattern for the numeric version follows this syntax:
+ *
+ *   0xAABBCCDDEE
+ *
+ * AA is the major, BB the minor and CC the patch version.
+ * DD represents the flavour and EE the suffix (only applicable
+ * to ALPHA, BETA and PRERELEASE flavours; otherwise it will
+ * be ignored and should be set to 0).
+ * Each of them always represented as two-digit hex number.
+ */
+#define BWG_VERSION_NUM \
+      (((uint64_t) BWG_VERSION_MAJOR)   << 32) \
+    | (((uint64_t) BWG_VERSION_MINOR)   << 24) \
+    | (((uint64_t) BWG_VERSION_PATCH)   << 16) \
+    | (((uint64_t) BWG_VERSION_FLAVOUR) << 8) \
+    | ((uint64_t)  BWG_VERSION_SUFFX)
 
 #endif /* __BEDAWANG_VERSION_H */
