@@ -4,7 +4,9 @@ include_directories(${bedawang_SOURCE_DIR}/src/config ${bedawang_SOURCE_DIR}/src
 # to be added to this list
 set(
     BEDAWANG_SOURCEFILES
+    bedawang.c
     buffer.c
+    endianess.c
 )
 
 # check whether libssl can be used
