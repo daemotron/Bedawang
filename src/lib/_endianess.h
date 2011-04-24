@@ -28,11 +28,11 @@ typedef enum
 } _bwg_endianess_t;
 
 
-extern uint16_t _bwg_hton16(uint16_t host16);
-extern uint32_t _bwg_hton32(uint32_t host32);
-extern uint64_t _bwg_hton64(uint64_t host64);
-extern uint16_t _bwg_ntoh16(uint16_t net16);
-extern uint32_t _bwg_ntoh32(uint32_t net32);
-extern uint64_t _bwg_ntoh64(uint64_t net64);
+uint16_t _bwg_hton16(uint16_t host16);
+uint32_t _bwg_hton32(uint32_t host32);
+uint64_t _bwg_hton64(uint64_t host64);
+uint16_t _bwg_ntoh16(uint16_t net16);
+uint32_t _bwg_ntoh32(uint32_t net32);
+uint64_t _bwg_ntoh64(uint64_t net64);
 
 #endif /* _BWG_ENDIANESS_H_ */

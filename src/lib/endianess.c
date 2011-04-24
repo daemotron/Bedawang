@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2010 Daemotron <mail@daemotron.net>
+ * Copyright (c) 2010, 2011 Daemotron <mail@daemotron.net>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -43,21 +43,21 @@ __bwg_detect_endianess(void)
  * (meaning: on all platforms), and inversion for 64 bit integers isn't even
  * part of some standard, so it would be unwise to rely on the libc.
  */
-uint16_t
+static uint16_t
 __bwg_byteswap_16(uint16_t value)
 {
     return (value << 8 | value >> 8);
 }
 
 
-uint32_t
+static uint32_t
 __bwg_byteswap_32(uint32_t value)
 {
     return ((value >> 24) | ((value >> 8) & 0xff00) | ((value << 8) & 0xff0000) | (value << 24));
 }
 
 
-uint64_t
+static uint64_t
 __bwg_byteswap_64(uint64_t value)
 {
     return ((value >> 56) | ((value >> 40) & (uint64_t)0xff00) | ((value >> 24) & (uint64_t)0xff0000) | ((value >> 8) & (uint64_t)0xff000000) | ((value << 8) & (uint64_t)0xff00000000) | ((value << 24) & (uint64_t)0xff0000000000) | ((value << 40) & (uint64_t)0xff000000000000) | (value << 56));
@@ -67,7 +67,7 @@ __bwg_byteswap_64(uint64_t value)
 /**
  * This function implements hton for uint16_t values
  */
-extern uint16_t
+uint16_t
 _bwg_hton16(uint16_t host16)
 {
     if (__bwg_detect_endianess() == LITTLEENDIAN)
@@ -80,7 +80,7 @@ _bwg_hton16(uint16_t host16)
 /**
  * This function implements hton for uint32_t values
  */
-extern uint32_t
+uint32_t
 _bwg_hton32(uint32_t host32)
 {
     if (__bwg_detect_endianess() == LITTLEENDIAN)
@@ -93,7 +93,7 @@ _bwg_hton32(uint32_t host32)
 /**
  * This function implements hton for uint64_t values
  */
-extern uint64_t
+uint64_t
 _bwg_hton64(uint64_t host64)
 {
     if (__bwg_detect_endianess() == LITTLEENDIAN)
@@ -106,7 +106,7 @@ _bwg_hton64(uint64_t host64)
 /**
  * This function implements ntoh for uint16_t values
  */
-extern uint16_t
+uint16_t
 _bwg_ntoh16(uint16_t net16)
 {
     if (__bwg_detect_endianess() == LITTLEENDIAN)
@@ -119,7 +119,7 @@ _bwg_ntoh16(uint16_t net16)
 /**
  * This function implements ntoh for uint32_t values
  */
-extern uint32_t
+uint32_t
 _bwg_ntoh32(uint32_t net32)
 {
     if (__bwg_detect_endianess() == LITTLEENDIAN)
@@ -132,7 +132,7 @@ _bwg_ntoh32(uint32_t net32)
 /**
  * This function implements ntoh for uint64_t values
  */
-extern uint64_t
+uint64_t
 _bwg_ntoh64(uint64_t net64)
 {
     if (__bwg_detect_endianess() == LITTLEENDIAN)
