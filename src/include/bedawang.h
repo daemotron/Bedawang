@@ -34,11 +34,11 @@ typedef enum
  */
 typedef enum
 {
-    BWG_SSL_NONE = 0,           /* no ssl */
-    BWG_SSL_PERMA_NOAUTH,       /* permanent ssl (encryption initialized after connection has been established) without client authentification */
-    BWG_SSL_PERMA_AUTH,         /* permanent ssl (encryption initialized after connection has been established) with client authentification */
-    BWG_SSL_STARTTLS_NOAUTH,    /* ssl/tls connection upgrade on request without client authentification */
-    BWG_SSL_STARTTLS_AUTH       /* ssl/tls connection upgrade on request with client authentification */
+    BWG_SSL_NONE = 0,           /* no ssl                                                                                                        */
+    BWG_SSL_PERMA_NOAUTH,       /* permanent ssl (encryption initialized after connection has been established) without client authentification  */
+    BWG_SSL_PERMA_AUTH,         /* permanent ssl (encryption initialized after connection has been established) with client authentification     */
+    BWG_SSL_STARTTLS_NOAUTH,    /* ssl/tls connection upgrade on request without client authentification                                         */
+    BWG_SSL_STARTTLS_AUTH       /* ssl/tls connection upgrade on request with client authentification                                            */
 } bwg_ssl_t;
 
 
@@ -50,15 +50,15 @@ typedef enum
  */
 typedef struct
 {
-    bwg_socktype_t type;        /* the socket type (TCP or UDP) */
-    int socket;                 /* the socket file descriptor */
-    char *node;                 /* the name of the node to bind to */
-    char *port;                 /* the port to listen on */
-    int backlog;                /* backlog setting for the connection */
-    bwg_ssl_t ssl_mode;         /* the ssl mode for this listener */
-    char *ssl_certfile;         /* the ssl certificate */
-    char *ssl_keyfile;          /* the certificate's private key */
-    char *ssl_cafile;           /* the certificate's CA certificate */
+    bwg_socktype_t type;        /* the socket type (TCP or UDP)        */
+    int socket;                 /* the socket file descriptor          */
+    char *node;                 /* the name of the node to bind to     */
+    char *port;                 /* the port to listen on               */
+    int backlog;                /* backlog setting for the connection  */
+    bwg_ssl_t ssl_mode;         /* the ssl mode for this listener      */
+    char *ssl_certfile;         /* the ssl certificate                 */
+    char *ssl_keyfile;          /* the certificate's private key       */
+    char *ssl_cafile;           /* the certificate's CA certificate    */
 } bwg_listener_t;
 
 
@@ -72,8 +72,8 @@ typedef struct
  */
 typedef struct 
 {
-    char *user;                 /* the user as which to run the daemon process */
-    char *group;                /* the group as which to run the daemon process */
+    char *user;                 /* the user as which to run the daemon process   */
+    char *group;                /* the group as which to run the daemon process  */
     /* TODO: define structure */
 } bwg_server_t;
 
